@@ -30,7 +30,7 @@ const invalid_num = (
         "(223) 156-7890",
         "  1 223 456 7890 2",
         "121234567890321",
-        "223-abc-789310"5a
+        "223-abc-789310"
 )
 
 @testset "clean 10-digit number" begin
