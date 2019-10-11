@@ -4,9 +4,10 @@ function bob(stimulus::AbstractString)
     isquestion = occursin(r"\?$", stimulus)
 
     issilence = length(stimulus) === 0
+    lenlower = length(filter(islowercase, stimulus))
 
-    numberupper = length(filter(islowercase, stimulus))
-    isyell =  numberupper === 0
+    isphrase = length(filter(isuppercase, stimulus))
+    isyell = lenlower === 0 && isphrase > 0
 
     if issilence
         return "Fine. Be that way!"
@@ -14,16 +15,14 @@ function bob(stimulus::AbstractString)
 
     if isyell & isquestion
         return "Calm down, I know what I'm doing!"
-    end
 
-    if isyell
+    elseif isyell
         return "Whoa, chill out!"
-    end
 
-    if isquestion
+    elseif isquestion
         return "Sure."
     end
 
-    return "Whatever"
+    return "Whatever."
 
 end

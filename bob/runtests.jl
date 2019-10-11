@@ -21,6 +21,13 @@ yells = (
         "I HATE YOU",
 )
 
+yelling_questions = (
+        "WHAT ARE YOU DOING?",
+        "ARE YOU TRYING TO FOOL ME?",
+        "    OMG, GOD ARE YOU REALLING DOING THIS?     "
+        " ARE YOU LISTING TO ME?  "
+)
+
 silences = (
         "",
         "          ",
@@ -43,7 +50,8 @@ response = Dict(
         :question => "Sure.",
         :yelling => "Whoa, chill out!",
         :silence => "Fine. Be that way!",
-        :misc => "Whatever."
+        :misc => "Whatever.",
+        :yelling_question => "Calm down, I know what I'm doing!"
 )
 
 @testset "questions" begin
@@ -53,6 +61,12 @@ response = Dict(
 end
 
 @testset "yelling" begin
+    @testset "$yelling_questions" for yelling_question in yelling_question
+        @test bob(yelling_question) == response[:yelling_questions]
+    end
+end
+
+@testset "yelling_questions" begin
     @testset "$yell" for yell in yells
         @test bob(yell) == response[:yelling]
     end
