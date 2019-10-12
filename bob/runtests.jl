@@ -24,7 +24,7 @@ yells = (
 yelling_questions = (
         "WHAT ARE YOU DOING?",
         "ARE YOU TRYING TO FOOL ME?",
-        "    OMG, GOD ARE YOU REALLING DOING THIS?     "
+        "    OMG, GOD ARE YOU REALLING DOING THIS?     ",
         " ARE YOU LISTING TO ME?  "
 )
 
@@ -61,8 +61,8 @@ response = Dict(
 end
 
 @testset "yelling" begin
-    @testset "$yelling_questions" for yelling_question in yelling_question
-        @test bob(yelling_question) == response[:yelling_questions]
+    @testset "$yelling_questions" for yelling_question in yelling_questions
+        @test bob(yelling_question) == response[:yelling_question]
     end
 end
 
