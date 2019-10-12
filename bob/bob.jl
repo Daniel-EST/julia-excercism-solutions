@@ -13,7 +13,7 @@ function bob(stimulus::AbstractString)
         return "Fine. Be that way!"
     end
 
-    if isyell & isquestion
+    if isyell && isquestion
         return "Calm down, I know what I'm doing!"
 
     elseif isyell
