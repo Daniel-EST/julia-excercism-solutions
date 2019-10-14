@@ -3,12 +3,12 @@ function is_leap_year(year::Int)
     divisible_400 = year % 400 === 0
     divisible_4 = year % 4 === 0
 
-    if divisible_400
-        return true
-    end
 
     if divisible_4
         if divisible_100
+            if divisible_400
+                return true
+            end
             return false
         end
         return true
