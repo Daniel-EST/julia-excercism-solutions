@@ -17,3 +17,15 @@ end
 @testset "strand with invalid nucleotides" begin
     @test_throws DomainError count_nucleotides("AGXXACT")
 end
+
+@testset "strand with invalid nucleotides" begin
+    @test_throws DomainError count_nucleotides("xxAGXXACT")
+end
+
+@testset "strand with invalid nucleotides" begin
+    @test_throws DomainError count_nucleotides("XXAGXXACTXX")
+end
+
+@testset "strand with invalid nucleotides" begin
+    @test_throws DomainError count_nucleotides("AGXXACTGGGTTGGxx")
+end
