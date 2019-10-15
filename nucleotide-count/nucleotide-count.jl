@@ -1,7 +1,7 @@
 function count_nucleotides(strand::AbstractString)
     strand = uppercase(strand)
     if occursin(r"[^A|G|C|T].+", strand)
-        throw(DomainError("A"))
+        throw(DomainError("Not a valid DNA strand."))
     end
     if isempty(strand)
         Dict('A' => 0, 'C' => 0, 'G' => 0, 'T' => 0)
