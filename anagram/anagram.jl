@@ -1,11 +1,10 @@
-function detect_anagrams(subject::AbstractString, candidates::AbstractArray)
-    subject = lowercase(subject)
-    filter!(x -> lowercase(x) !== subject, candidates)
-    subject_splitted = subject |> collect |> sort
+split_sort(string::AbstractString) = string |> lowercase |> collect |> sort
 
-    candidates_splitted = map(candidates) do candidate
-        candidate |> lowercase |> collect |> sort
-    end
+function detect_anagrams(subject::AbstractString, candidates::AbstractArray)
+    filter!(x -> lowercase(x) !== lowercase(subject), candidates)
+
+    subject_splitted = split_sort(subject)
+    candidates_splitted = map(split_sort, candidates)
 
     anagrams = [subject_splitted] .== candidates_splitted
     candidates[anagrams]
