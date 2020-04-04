@@ -26,13 +26,10 @@ end
         @test is_isosceles([3, 4, 4]) == true
         @test is_isosceles([4, 3, 4]) == true
         @test is_isosceles([4, 4, 3]) == true
+        @test is_isosceles([4, 4, 4]) == true
         @test is_isosceles([0.4, 0.5, 0.5]) == true
         @test is_isosceles([0.5, 0.4, 0.5]) == true
         @test is_isosceles([0.5, 0.5, 0.4]) == true
-    end
-
-    @testset "all sides are equal" begin
-        @test is_isosceles([4, 4, 4]) == false
     end
 
     @testset "false if no sides are equal" begin
@@ -41,7 +38,6 @@ end
 
     @testset "false if invalid triangle" begin
         @test is_isosceles([1, 1, 3]) == false
-        @test is_equilateral([0, 0, 0]) == false
     end
 end
 
@@ -64,6 +60,5 @@ end
 
     @testset "false if invalid triangle" begin
         @test is_scalene([7, 3, 2]) == false
-        @test is_equilateral([0, 0, 0]) == false
     end
 end
