@@ -1,20 +1,19 @@
-function rotate(rotations::Int, input)
-    if rotations < 0 || rotations > 26
+function rotate(n, char::Char)
+    if n < 0 || n > 26
         throw(ArgumentError("Rotations has to be greater than zero and lower or equal to 26."))
     end
 
-    rotated = map(input) do character
-        codefied = character + rotations
-        if islowercase(character)
-            'a' <= codefied <= 'z' ? codefied : (codefied - 'z') + 'a' - 1
-        elseif isuppercase(character)
-            'A' <= codefied <= 'Z' ? codefied : (codefied - 'Z') + 'A' - 1
-        else
-            character
-        end
+    if islowercase(char)
+        'a' + (Int(char + n) - Int('a')) % 26
+    elseif isuppercase(char)
+        'A' + (Int(char + n) - Int('A')) % 26
+    else
+        char
     end
+end
 
-    typeof(input) == Char ? rotated[1] : rotated
+function rotate(n, str::String)
+    map(c -> rotate(n, c), str)
 end
 
 for i in 1:26
