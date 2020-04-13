@@ -4,9 +4,9 @@ function rotate(n, char::Char)
     end
 
     if islowercase(char)
-        'a' + (Int(char + n) - Int('a')) % 26
+        'a' + (char + n - 'a') % 26
     elseif isuppercase(char)
-        'A' + (Int(char + n) - Int('A')) % 26
+        'A' + (char + n - 'A') % 26
     else
         char
     end
