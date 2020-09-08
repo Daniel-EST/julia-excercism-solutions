@@ -1,4 +1,4 @@
-function rotate(n, char::Char)
+function rotate(n, char::AbstractChar)
     if n < 0 || n > 26
         throw(ArgumentError("Rotations has to be greater than zero and lower or equal to 26."))
     end
@@ -12,7 +12,7 @@ function rotate(n, char::Char)
     end
 end
 
-function rotate(n, str::String)
+function rotate(n, str::AbstractString)
     map(c -> rotate(n, c), str)
 end
 
